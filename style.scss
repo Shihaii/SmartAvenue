@@ -19,6 +19,12 @@ body {
   gap: 2vw;
   background-color: white;
 }
+.subheader{
+    display: flex;
+    gap: 2vw;
+    height: 85px;
+    justify-content: center;
+}
 
 .header-item {
   display: flex;
@@ -26,7 +32,8 @@ body {
   list-style-type: none;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+//   font-size: 14px;
+  font: $font;
 }
 
 .header-item__text {
