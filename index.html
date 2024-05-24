@@ -5,37 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
     <header>
         <ul class="header">
             <li class="header-item">
-               <label class="header-item__text-primary"> Головна</label>
+                <img src="assets/logo-box.png" alt="">
+             </li>  
+            <li class="header-item">
+               <a class="header-item__text" href="#"> Головна</a>
             </li>  
             <li class="header-item">
-                Про комплекс
+                <a class="header-item__text">Про комплекс</a>
             </li>
             <li class="header-item">
-                Розташування
+                <a class="header-item__text">Розташування</a>
             </li>
             <li class="header-item">
-                Планування
+                <a class="header-item__text">Планування</a>
             </li>
             <li class="header-item">
-                Новини
+                <a class="header-item__text">Новини</a>
             </li>
             <li class="header-item">
-                Мова
+                <div class="container-flex-column">
+                    <label class="header-item__label">Мова</label>
+                    <select class="header-item__select">
+                        <option value="UKR">UKR</option>
+                    </select>
+                </div>
             </li>
             <li class="header-item">
-                Адреса
+                <image src="/assets/geolocation.png"></image>
+                <div class="container-flex-column">
+                    <div>
+                        <label class="header-item__label">Адреса  <a style="text-decoration: underline;">Як проїхати?</a></label>
+                    </div>
+                    <p>с.Крюковщина 191, Київська область</p>
+                </div>
             </li>
             <li class="header-item">
-                Телефон
+                <image src="/assets/phone.png"></image>
+                <div class="container-flex-column">
+                        <label class="header-item__label">Телефон 09:00 - 19:00</label>
+                    <p style="font-weight: 500;">+380 (99) 2337 999</p>
+                </div>
             </li>
         </ul>
     </header>
-
+<div style="width: 100vw; height: 100vh; background-color: blueviolet;"></div>
     <footer></footer>
 </body>
 </html>
