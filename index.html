@@ -3,35 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Smart Avenue</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header id="header" class="header">
-      <ul class="subheader">
-        <a href="#" class="header-item">
-          <img src="assets/logo-box.png" alt="" />
-        </a>
+      <a href="#">
+        <img src="assets/logo-box.png" alt="" />
+      </a>
+      <ul class="header-item__menu">
         <li class="header-item">
-          <a class="header-item__text-menu" href="#"> Головна</a>
+          <a class="header-item-menu__text" href="#"> Головна</a>
         </li>
         <li class="header-item">
-          <a class="header-item__text-menu">Про комплекс</a>
+          <a class="header-item-menu__text">Про комплекс</a>
         </li>
         <li class="header-item">
-          <a class="header-item__text-menu">Розташування</a>
+          <a class="header-item-menu__text">Розташування</a>
         </li>
         <li class="header-item">
-          <a class="header-item__text-menu">Планування</a>
+          <a class="header-item-menu__text">Планування</a>
         </li>
         <li class="header-item">
-          <a class="header-item__text-menu">Новини</a>
+          <a class="header-item-menu__text">Новини</a>
         </li>
       </ul>
       <div class="header-item">
@@ -87,10 +94,82 @@
         </div>
       </div>
     </header>
+    <div class="swiper-container">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="swiper-slide__container">
+              <div class="swiper-slide__img-filter"></div>
+              <img class="swiper-slide__img" src="assets/Rectangle 1.png"/>
+              <div class="swiper-slide__description-container">
+                <p class="swiper-slide__description-container-complex-name">Житловий комплекс “Dream House”</p>
+                <p class="swiper-slide__description-container-header">Смарт квартира 22м² в Крюковщині</p>
+                <p class="swiper-slide__description-container-price"><label class="swiper-slide__description-container-label">Від</label> 16 500$</p>
+                <button class="swiper-slide__description-container-button">Обрати квартиру <img src="assets/Arrow - Right.png"></button>
+                <div class="swiper-slide__description-container-tags">
+                  <div class="swiper-slide__description-container-tag">
+                    <img src="assets/compass 1.png">
+                    <label class="swiper-slide__description-container-label">10 хвилин до Києва</label>
+                  </div>
+                  <div class="swiper-slide__description-container-tag">
+                    <img src="assets/location 1.png">
+                    <label class="swiper-slide__description-container-label">Ліс в 2 хвилинах</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="swiper-slide">
+              <div class="swiper-slide__container">
+                <div class="swiper-slide__img-filter"></div>
+                <img class="swiper-slide__img" src="assets/Rectangle 59.png"/>
+                <div class="swiper-slide__description-container">
+                  <p class="swiper-slide__description-container-complex-name">Житловий комплекс “Dream House”</p>
+                  <p class="swiper-slide__description-container-header">Смарт квартира 22м² в Крюковщині</p>
+                  <p class="swiper-slide__description-container-price"><label class="swiper-slide__description-container-label">Від</label> 16 500$</p>
+                  <button class="swiper-slide__description-container-button">Обрати квартиру <img src="assets/Arrow - Right.png"></button>
+                  <div class="swiper-slide__description-container-tags">
+                    <div class="swiper-slide__description-container-tag">
+                      <img src="assets/compass 1.png">
+                      <label class="swiper-slide__description-container-label">10 хвилин до Києва</label>
+                    </div>
+                    <div class="swiper-slide__description-container-tag">
+                      <img src="assets/location 1.png">
+                      <label class="swiper-slide__description-container-label">Ліс в 2 хвилинах</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <div class="swiper__banner">
+        <img class="swiper__banner-img" src="assets/PDf mockup  1.png">
+        <div class="swiper__banner-title">
+          <p>Презентація комплексу</p>
+          <p class="swiper__banner-label">Документ PDF, 18.6 mb</p>
+        </div>
+        <div>
+          <a href="#" download><img src="assets/File - Download.png"></a>
+          <p class="swiper__banner-label">Скачати</p>
+        </div>
+      </div>
+      <div class="swiper__banner-social-media">
+        <a href="#"><img src="assets/ints.png"></a>
+        <a href="#"><img src="assets/fb.png"></a>
+        <a href="#"><img src="assets/yt.png"></a>
+      </div>
+    </div>
+    
     <div
-      style="width: 100vw; height: 140vh; background-color: blueviolet"
+      style="width: 100vw; height: 140vh; z-index: 0;position: relative; background-color: blueviolet"
     ></div>
     <footer></footer>
-    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
