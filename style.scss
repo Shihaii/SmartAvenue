@@ -12,7 +12,8 @@
   --text-color-primary-light: #000000;
   --text-color-secondary-light: #717171;
   --text-color-primary-dark: #FFFFFF;
-  --text-color-secondary-dark: #FFFFFF;
+  --text-color-secondary-dark: rgba(255, 255, 255, 0.7);
+  --text-color-third-dark: rgba(255, 255, 255, 0.6);
   --black-filter:rgba(0, 0, 0, 0.3);
   --red-primary: #F03E3E;  
 }
@@ -31,6 +32,15 @@ body {
 }
 .text-color-secondary-light {
   color: var(--text-color-secondary-light);
+}
+.text-color-primary-dark{
+color: var(--text-color-primary-dark);
+}
+.text-color-secondary-dark{
+color: var(--text-color-secondary-dark);
+}
+.text-color-third-dark{
+color: var(--text-color-third-dark);
 }
 .header {
   position: fixed;
@@ -56,21 +66,18 @@ body {
       justify-content: center;
 
       &__text {
-        color: var(--text-color-secondary-light);
         height: 100%;
         text-decoration: none;
         display: flex;
         align-items: center;
         font: var(--font);
         &:hover {
-          color: var(--text-color-primary-light);
           cursor: pointer;
           border-top: 5px var(--red-primary) solid;
         }
       }
     }
     &__text-general {
-      color: var(--text-color-primary-light);
       height: 100%;
       text-decoration: none;
       display: flex;
@@ -79,12 +86,10 @@ body {
     }
     &__select {
       font: var(--font);
-      color: var(--text-color-primary-light);
       background-color: transparent;
       border-style: none;
     }
     &__label {
-      color: var(--text-color-secondary-light);
       font: var(--font-header-label);
     }
     &__icon {
@@ -92,8 +97,11 @@ body {
     }
   }
   &__white {
-    background-color: var(--text-color-secondary-dark);
+    background-color: var(--text-color-primary-dark);
   }
+}
+.font-weight-500{
+  font-weight: 500;
 }
 .container {
   &-flex {
