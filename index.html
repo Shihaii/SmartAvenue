@@ -24,10 +24,16 @@
   </head>
   <body>
     <header id="header" class="header">
-      <a href="#">
-        <img src="assets/logo-box.png" alt="" />
-      </a>
-      <ul class="header-item-menu">
+      <div id="header-dropdown-menu" class="header-dropdown-menu">
+        <a class="show" id="menu-button" href="#"><img src="assets/Menu.png"></a>
+        <a class="hide" id="cross-button" href="#"><img src="assets/Cross.png"></a>
+      </div>
+      <div class="header-item">
+        <a class="header__logo" href="#">
+          <img src="assets/logo-box.png" alt="" />
+        </a>
+      </div>
+      <ul id="header-item-menu" class="header-item-menu">
         <li class="header-item">
           <a class="header-item-menu__text" href="#"> Головна</a>
         </li>
@@ -44,59 +50,78 @@
           <a class="header-item-menu__text" href="#">Новини</a>
         </li>
       </ul>
-      <div class="header-item">
-        <div class="container-flex-column relative">
-          <label class="header-item__label">Мова</label>
-          <select class="header-item__select relative">
-            <option value="UKR">UKR</option>
-          </select>
+      <div id="header-item-group" class="header-item-group">
+        <div id="header-divider"  class="header-divider-container">
+          <hr  class="header-divider"> 
         </div>
-      </div>
-      <div class="header-item">
-        <div class="container-flex-column">
-          <div>
+        <div id="header-item__language" class="header-item header-item__language">
+          <div class="container-flex-column relative">
+            <label class="header-item__label space-for-icon">Мова</label>
+            <div class="container-flex-row">
+           
+             
+              <a><img src="/assets/Globe - 2.png"></img></a>
+                <select class="header-item__select relative">
+                  <option value="UKR">UKR</option>
+                </select>
+             
+              
+            </div>
+            
+          </div>
+        </div>
+        <div id="header-item__address" class="header-item header-item__address">
+          <div class="container-flex-column">
+            <div>
+              <label class="header-item__label space-for-icon"
+                >Адреса
+                <a
+                  href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89"
+                  target="_blank"
+                  >Як проїхати?</a
+                ></label
+              >
+            </div>
+            <div class="container-flex-row">
+              <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank"
+                ><image
+                  class="header-item__icon"
+                  src="/assets/geolocation.png"
+                ></image
+              ></a>
+              <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank" class="header-item__text-general">
+                <p >
+                  с.Крюковщина 191, Київська область
+                </p></a
+              >
+            </div>
+          </div>
+        </div>
+        <div id="header-item__phone" class="header-item header-item__phone">
+          <div class="container-flex-column">
             <label class="header-item__label space-for-icon"
-              >Адреса
-              <a
-                href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89"
-                target="_blank"
-                >Як проїхати?</a
-              ></label
+              >Телефон 09:00 - 19:00</label
             >
-          </div>
-          <div class="container-flex-row">
-            <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank"
-              ><image
-                class="header-item__icon"
-                src="/assets/geolocation.png"
-              ></image
-            ></a>
-            <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank" class="header-item__text-general">
-              <p >
-                с.Крюковщина 191, Київська область
-              </p></a
-            >
+            <div class="container-flex-row">
+              <a href="tel:+380977784411"
+                ><img src="/assets/phone.png"></img
+              ></a>
+              <a class="header-item__text-general" href="tel:+380977784411"
+              >
+              <p class="font-weight-500">
+                +380 (99) 2337 999
+              </p>
+            </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="header-item">
-        <div class="container-flex-column">
-          <label class="header-item__label space-for-icon"
-            >Телефон 09:00 - 19:00</label
-          >
-          <div class="container-flex-row">
-            <a href="tel:+380977784411"
-              ><img src="/assets/phone.png"></img
-            ></a>
-            <a class="header-item__text-general" href="tel:+380977784411"
-            >
-            <p class="font-weight-500">
-              +380 (99) 2337 999
-            </p>
-          </a>
-          </div>
+        <div id="header-item__social-media" class="header-item header-item__social-media">
+          <a href="#"><img src="assets/ints-red.png" /></a>
+          <a href="#"><img src="assets/fb-red.png" /></a>
+          <a href="#"><img src="assets/yt-red.png" /></a>
         </div>
       </div>
+      
     </header>
     <div class="swiper-container">
       <div class="swiper">
@@ -118,7 +143,7 @@
                   >
                   16 500$
                 </p>
-                <a class="swiper-slide__description-container-button">
+                <a href="#" class="swiper-slide__description-container-button">
                   Обрати квартиру <img src="assets/Arrow - Right.png" />
                 </a>
                 <div class="swiper-slide__description-container-tags">
