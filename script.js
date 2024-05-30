@@ -1,47 +1,164 @@
-// import Swiper from 'swiper/bundle';
-// import Swiper from '/node_modules/swiper';
+function initHeaderColors() {
+  $(".header-item-menu__text").addClass("text-color-secondary-dark");
+  $(".header-item-menu__text:hover").addClass("text-color-primary-dark");
+  $(".header-item__text-general").addClass("text-color-primary-dark");
+  $(".header-item__select").addClass("text-color-primary-dark");
+  $(".header-item__label").addClass("text-color-secondary-dark");
+}
 
-console.log("hi");
-const handleScroll = () => {
-  console.log("hi");
-  let value = window.scrollY;
-  console.log("value", value);
-  if (value > 0) {
-    document.getElementById("header").classList.add("header__white");
-  } else {
-    document.getElementById("header").classList.remove("header__white");
-  }
-};
-document.addEventListener("scroll", handleScroll);
+function initHandleScroll() {
+  const handleScroll = () => {
+    let value = window.scrollY;
+    let vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    if (value > 5) {
+      $("#header").addClass("header__white");
 
+      if (vw > 900) {
+        $(".header-item-menu__text")
+          .removeClass("text-color-secondary-dark")
+          .addClass("text-color-secondary-light");
+        $(".header-item-menu__text:hover")
+          .removeClass("text-color-primary-dark")
+          .addClass("text-color-primary-light");
+        $(".header-item__text-general")
+          .removeClass("text-color-primary-dark")
+          .addClass("text-color-primary-light");
+        $(".header-item__select")
+          .removeClass("text-color-primary-dark")
+          .addClass("text-color-primary-light");
+        $(".header-item__label")
+          .removeClass("text-color-secondary-dark")
+          .addClass("text-color-secondary-light");
+      }
+    } else {
+      $("#header").removeClass("header__white");
 
+      if (vw > 900) {
+        $(".header-item-menu__text")
+          .removeClass("text-color-secondary-light")
+          .addClass("text-color-secondary-dark");
+        $(".header-item-menu__text:hover")
+          .removeClass("text-color-primary-light")
+          .addClass("text-color-primary-dark");
+        $(".header-item__text-general")
+          .removeClass("text-color-primary-light")
+          .addClass("text-color-primary-dark");
+        $(".header-item__select")
+          .removeClass("text-color-primary-light")
+          .addClass("text-color-primary-dark");
+        $(".header-item__label")
+          .removeClass("text-color-secondary-light")
+          .addClass("text-color-secondary-dark");
+      }
+    }
+  };
+  $(document).scroll(handleScroll);
+}
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  on: {
-    init: function () {
-      console.log('swiper initialized');
+function initSwiper() {
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    on: {
+      init: function () {
+        console.log("swiper initialized");
+      },
     },
-  },
-  direction: 'horizontal',
-  loop: true,
-  allowTouchMove: false,
-  autoplay: {
-    delay: 1000000,
-  },
-  // If we need pagination
-  // pagination: {
-  //   el: '.swiper-pagination',
-  // },
+    direction: "horizontal",
+    loop: true,
+    allowTouchMove: false,
+    autoplay: {
+      delay: 10000,
+    },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+function openMenu() {
+  $("#header").toggleClass("header").toggleClass("header-responsive");
+  $("#header-item-menu")
+    .toggleClass("header-item-menu")
+    .toggleClass("header-item-menu-responsive");
+  $("#header-item-group")
+    .toggleClass("header-item-group")
+    .toggleClass("header-item-group-responsive");
+  $("#header-divider")
+    .toggleClass("header-divider-container")
+    .toggleClass("header-divider-container-responsive");
+  $("#header-item__social-media")
+    .toggleClass("header-item__social-media")
+    .toggleClass("header-item__social-media-responsive");
+  $("#header-item__language")
+    .toggleClass("header-item__language")
+    .toggleClass("header-item__language-responsive");
+  $("#header-item__address")
+    .toggleClass("header-item__address")
+    .toggleClass("header-item__address-responsive");
+  $("#header-item__phone")
+    .toggleClass("header-item__phone")
+    .toggleClass("header-item__phone-responsive");
+}
+function initMenuButton() {
+  $("#menu-button").click(function () {
+    $("body").toggleClass("disable-scroll");
+    $("#menu-button").toggleClass("show").toggleClass("hide");
+    $("#cross-button").toggleClass("show").toggleClass("hide");
+    openMenu();
+    $(".header-item-menu__text")
+      .removeClass("text-color-secondary-dark")
+      .addClass("text-color-secondary-light");
+    $(".header-item-menu__text")
+      .removeClass("text-color-secondary-dark")
+      .addClass("text-color-secondary-light");
+    $(".header-item-menu__text:hover")
+      .removeClass("text-color-primary-dark")
+      .addClass("text-color-primary-light");
+    $(".header-item__text-general")
+      .removeClass("text-color-primary-dark")
+      .addClass("text-color-primary-light");
+    $(".header-item__select")
+      .removeClass("text-color-primary-dark")
+      .addClass("text-color-primary-light");
+    $(".header-item__label")
+      .removeClass("text-color-secondary-dark")
+      .addClass("text-color-secondary-light");
+  });
 
-  // And if we need scrollbar
-  // scrollbar: {
-  //   el: '.swiper-scrollbar',
-  // },
+  $("#cross-button").click(function () {
+    $("body").toggleClass("disable-scroll");
+    $("#menu-button").toggleClass("show").toggleClass("hide");
+    $("#cross-button").toggleClass("show").toggleClass("hide");
+    openMenu();
+    $(".header-item-menu__text")
+      .removeClass("text-color-secondary-light")
+      .addClass("text-color-secondary-dark");
+    $(".header-item-menu__text")
+      .removeClass("text-color-secondary-light")
+      .addClass("text-color-secondary-dark");
+    $(".header-item-menu__text:hover")
+      .removeClass("text-color-primary-light")
+      .addClass("text-color-primary-dark");
+    $(".header-item__text-general")
+      .removeClass("text-color-primary-light")
+      .addClass("text-color-primary-dark");
+    $(".header-item__select")
+      .removeClass("text-color-primary-light")
+      .addClass("text-color-primary-dark");
+    $(".header-item__label")
+      .removeClass("text-color-secondary-light")
+      .addClass("text-color-secondary-dark");
+  });
+}
+
+$(document).ready(function () {
+  initHeaderColors();
+  initHandleScroll();
+  initSwiper();
+  initMenuButton();
 });

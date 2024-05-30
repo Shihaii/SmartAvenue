@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
@@ -21,78 +24,104 @@
   </head>
   <body>
     <header id="header" class="header">
-      <a href="#">
-        <img src="assets/logo-box.png" alt="" />
-      </a>
-      <ul class="header-item__menu">
+      <div id="header-dropdown-menu" class="header-dropdown-menu">
+        <a class="show" id="menu-button" href="#"><img src="assets/Menu.png"></a>
+        <a class="hide" id="cross-button" href="#"><img src="assets/Cross.png"></a>
+      </div>
+      <div class="header-item">
+        <a class="header__logo" href="#">
+          <img src="assets/logo-box.png" alt="" />
+        </a>
+      </div>
+      <ul id="header-item-menu" class="header-item-menu">
         <li class="header-item">
           <a class="header-item-menu__text" href="#"> Головна</a>
         </li>
         <li class="header-item">
-          <a class="header-item-menu__text">Про комплекс</a>
+          <a class="header-item-menu__text" href="#">Про комплекс</a>
         </li>
         <li class="header-item">
-          <a class="header-item-menu__text">Розташування</a>
+          <a class="header-item-menu__text" href="#">Розташування</a>
         </li>
         <li class="header-item">
-          <a class="header-item-menu__text">Планування</a>
+          <a class="header-item-menu__text" href="#">Планування</a>
         </li>
         <li class="header-item">
-          <a class="header-item-menu__text">Новини</a>
+          <a class="header-item-menu__text" href="#">Новини</a>
         </li>
       </ul>
-      <div class="header-item">
-        <div class="container-flex-column relative">
-          <label class="header-item__label">Мова</label>
-          <select class="header-item__select relative">
-            <option value="UKR">UKR</option>
-          </select>
+      <div id="header-item-group" class="header-item-group">
+        <div id="header-divider"  class="header-divider-container">
+          <hr  class="header-divider"> 
         </div>
-      </div>
-      <div class="header-item">
-        <div class="container-flex-column">
-          <div>
+        <div id="header-item__language" class="header-item header-item__language">
+          <div class="container-flex-column relative">
+            <label class="header-item__label space-for-icon">Мова</label>
+            <div class="container-flex-row">
+           
+             
+              <a><img src="/assets/Globe - 2.png"></img></a>
+                <select class="header-item__select relative">
+                  <option value="UKR">UKR</option>
+                </select>
+             
+              
+            </div>
+            
+          </div>
+        </div>
+        <div id="header-item__address" class="header-item header-item__address">
+          <div class="container-flex-column">
+            <div>
+              <label class="header-item__label space-for-icon"
+                >Адреса
+                <a
+                  href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89"
+                  target="_blank"
+                  >Як проїхати?</a
+                ></label
+              >
+            </div>
+            <div class="container-flex-row">
+              <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank"
+                ><image
+                  class="header-item__icon"
+                  src="/assets/geolocation.png"
+                ></image
+              ></a>
+              <a href="https://maps.app.goo.gl/2DANHRnMdBk4iCE89" target="_blank" class="header-item__text-general">
+                <p >
+                  с.Крюковщина 191, Київська область
+                </p></a
+              >
+            </div>
+          </div>
+        </div>
+        <div id="header-item__phone" class="header-item header-item__phone">
+          <div class="container-flex-column">
             <label class="header-item__label space-for-icon"
-              >Адреса
-              <a
-                href="#"
-                onclick="window.open(`https://www.google.com/maps/search/%D1%81.%D0%9A%D1%80%D1%8E%D0%BA%D0%BE%D0%B2%D1%89%D0%B8%D0%BD%D0%B0+191,+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C`)"
-                style="text-decoration: underline"
-                >Як проїхати?</a
-              ></label
+              >Телефон 09:00 - 19:00</label
             >
-          </div>
-          <div class="container-flex-row">
-            <a
-              href="#"
-              onclick="window.open(`https://www.google.com/maps/search/%D1%81.%D0%9A%D1%80%D1%8E%D0%BA%D0%BE%D0%B2%D1%89%D0%B8%D0%BD%D0%B0+191,+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C`)"
-              style="text-decoration: underline"
-              ><image
-                class="header-item__icon"
-                src="/assets/geolocation.png"
-              ></image
-            ></a>
-            <p class="header-item__text-general">
-              с.Крюковщина 191, Київська область
-            </p>
+            <div class="container-flex-row">
+              <a href="tel:+380977784411"
+                ><img src="/assets/phone.png"></img
+              ></a>
+              <a class="header-item__text-general" href="tel:+380977784411"
+              >
+              <p class="font-weight-500">
+                +380 (99) 2337 999
+              </p>
+            </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="header-item">
-        <div class="container-flex-column">
-          <label class="header-item__label space-for-icon"
-            >Телефон 09:00 - 19:00</label
-          >
-          <div class="container-flex-row">
-            <a href="tel:+380977784411"
-              ><image src="/assets/phone.png"></image
-            ></a>
-            <p class="header-item__text-general" style="font-weight: 500">
-              +380 (99) 2337 999
-            </p>
-          </div>
+        <div id="header-item__social-media" class="header-item header-item__social-media">
+          <a href="#"><img src="assets/ints-red.png" /></a>
+          <a href="#"><img src="assets/fb-red.png" /></a>
+          <a href="#"><img src="assets/yt-red.png" /></a>
         </div>
       </div>
+      
     </header>
     <div class="swiper-container">
       <div class="swiper">
@@ -100,75 +129,114 @@
           <div class="swiper-slide">
             <div class="swiper-slide__container">
               <div class="swiper-slide__img-filter"></div>
-              <img class="swiper-slide__img" src="assets/Rectangle 1.png"/>
+              <img class="swiper-slide__img" src="assets/Rectangle 1.png" />
               <div class="swiper-slide__description-container">
-                <p class="swiper-slide__description-container-complex-name">Житловий комплекс “Dream House”</p>
-                <p class="swiper-slide__description-container-header">Смарт квартира 22м² в Крюковщині</p>
-                <p class="swiper-slide__description-container-price"><label class="swiper-slide__description-container-label">Від</label> 16 500$</p>
-                <button class="swiper-slide__description-container-button">Обрати квартиру <img src="assets/Arrow - Right.png"></button>
+                <p class="swiper-slide__description-container-complex-name">
+                  Житловий комплекс “Dream House”
+                </p>
+                <p class="swiper-slide__description-container-header">
+                  Смарт квартира 22м² в Крюковщині
+                </p>
+                <p class="swiper-slide__description-container-price">
+                  <label class="swiper-slide__description-container-label"
+                    >Від</label
+                  >
+                  16 500$
+                </p>
+                <a href="#" class="swiper-slide__description-container-button">
+                  Обрати квартиру <img src="assets/Arrow - Right.png" />
+                </a>
                 <div class="swiper-slide__description-container-tags">
                   <div class="swiper-slide__description-container-tag">
-                    <img src="assets/compass 1.png">
-                    <label class="swiper-slide__description-container-label">10 хвилин до Києва</label>
+                    <img src="assets/compass 1.png" />
+                    <label class="swiper-slide__description-container-label"
+                      >10 хвилин до Києва</label
+                    >
                   </div>
                   <div class="swiper-slide__description-container-tag">
-                    <img src="assets/location 1.png">
-                    <label class="swiper-slide__description-container-label">Ліс в 2 хвилинах</label>
+                    <img src="assets/location 1.png" />
+                    <label class="swiper-slide__description-container-label"
+                      >Ліс в 2 хвилинах</label
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-            <div class="swiper-slide">
-              <div class="swiper-slide__container">
-                <div class="swiper-slide__img-filter"></div>
-                <img class="swiper-slide__img" src="assets/Rectangle 59.png"/>
-                <div class="swiper-slide__description-container">
-                  <p class="swiper-slide__description-container-complex-name">Житловий комплекс “Dream House”</p>
-                  <p class="swiper-slide__description-container-header">Смарт квартира 22м² в Крюковщині</p>
-                  <p class="swiper-slide__description-container-price"><label class="swiper-slide__description-container-label">Від</label> 16 500$</p>
-                  <button class="swiper-slide__description-container-button">Обрати квартиру <img src="assets/Arrow - Right.png"></button>
-                  <div class="swiper-slide__description-container-tags">
-                    <div class="swiper-slide__description-container-tag">
-                      <img src="assets/compass 1.png">
-                      <label class="swiper-slide__description-container-label">10 хвилин до Києва</label>
-                    </div>
-                    <div class="swiper-slide__description-container-tag">
-                      <img src="assets/location 1.png">
-                      <label class="swiper-slide__description-container-label">Ліс в 2 хвилинах</label>
-                    </div>
+
+          <div class="swiper-slide">
+            <div class="swiper-slide__container">
+              <div class="swiper-slide__img-filter"></div>
+              <img class="swiper-slide__img" src="assets/Rectangle 1.png" />
+              <div class="swiper-slide__description-container">
+                <p class="swiper-slide__description-container-complex-name">
+                  Житловий комплекс “Dream House”
+                </p>
+                <p class="swiper-slide__description-container-header">
+                  Смарт квартира 22м² в Крюковщині
+                </p>
+                <p class="swiper-slide__description-container-price">
+                  <label class="swiper-slide__description-container-label"
+                    >Від</label
+                  >
+                  16 500$
+                </p>
+                <a class="swiper-slide__description-container-button">
+                  Обрати квартиру <img src="assets/Arrow - Right.png" />
+                </a>
+                <div class="swiper-slide__description-container-tags">
+                  <div class="swiper-slide__description-container-tag">
+                    <img src="assets/compass 1.png" />
+                    <label class="swiper-slide__description-container-label"
+                      >10 хвилин до Києва</label
+                    >
+                  </div>
+                  <div class="swiper-slide__description-container-tag">
+                    <img src="assets/location 1.png" />
+                    <label class="swiper-slide__description-container-label"
+                      >Ліс в 2 хвилинах</label
+                    >
                   </div>
                 </div>
               </div>
             </div>
-         
+          </div>
+          
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-      <div class="swiper__banner">
-        <img class="swiper__banner-img" src="assets/PDf mockup  1.png">
-        <div class="swiper__banner-title">
+      <div class="swiper-banner">
+        <img class="swiper-banner__img" src="assets/PDf mockup  1.png" />
+        <div class="swiper-banner__title">
           <p>Презентація комплексу</p>
-          <p class="swiper__banner-label">Документ PDF, 18.6 mb</p>
+          <p class="swiper-banner__label">Документ PDF, 18.6 mb</p>
         </div>
         <div>
-          <a href="#" download><img src="assets/File - Download.png"></a>
-          <p class="swiper__banner-label">Скачати</p>
+          <a href="assets/Chainsaw Man [Volume 01].pdf" download
+            ><img src="assets/File - Download.png"
+          /></a>
+          <p class="swiper-banner__label">Скачати</p>
         </div>
       </div>
-      <div class="swiper__banner-social-media">
-        <a href="#"><img src="assets/ints.png"></a>
-        <a href="#"><img src="assets/fb.png"></a>
-        <a href="#"><img src="assets/yt.png"></a>
+      <div class="swiper-banner__social-media">
+        <a href="#"><img src="assets/ints.png" /></a>
+        <a href="#"><img src="assets/fb.png" /></a>
+        <a href="#"><img src="assets/yt.png" /></a>
       </div>
     </div>
-    
+
     <div
-      style="width: 100vw; height: 140vh; z-index: 0;position: relative; background-color: blueviolet"
+      style="
+        width: 100vw;
+        height: 140vh;
+        z-index: 0;
+        position: relative;
+        background-color: blueviolet;
+      "
     ></div>
     <footer></footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="script.js"></script>
   </body>
