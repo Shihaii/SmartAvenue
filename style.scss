@@ -18,6 +18,7 @@
   --text-color-third-dark: rgba(255, 255, 255, 0.6);
   --black-filter: rgba(0, 0, 0, 0.3);
   --red-primary: #f03e3e;
+  --swiper-navigation-color: #ffffff;
 }
 html {
   font-size: 10px;
@@ -224,14 +225,25 @@ body {
   &-banner {
     position: absolute;
     top: 87.5vh;
-    right: 5rem;
+    right: 5vw;
     display: flex;
     align-items: center;
-    width: 57rem;
+    width: 40vw;
     height: 20.1rem;
     background-color: var(--red-primary);
     z-index: 1;
-
+    &-button{
+      &-container{
+      height: 9.2rem;
+      width: 8vw;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: auto;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
     &__social-media {
       position: absolute;
       top: 40vh;
@@ -257,7 +269,7 @@ body {
     }
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 1130px) {
   .header {
     &-responsive {
       display: flex;
@@ -364,7 +376,7 @@ body {
   }
 }
 
-@media (min-width:561px) and (max-width: 900px){
+@media (min-width:561px) and (max-width: 1130px){
   .swiper {
     &-slide {
       &__description-container {
