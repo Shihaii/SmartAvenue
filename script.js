@@ -16,7 +16,7 @@ function initHandleScroll() {
     if (value > 5) {
       $("#header").addClass("header__white");
 
-      if (vw > 900) {
+      if (vw > 1130) {
         $(".header-item-menu__text")
           .removeClass("text-color-secondary-dark")
           .addClass("text-color-secondary-light");
@@ -36,7 +36,7 @@ function initHandleScroll() {
     } else {
       $("#header").removeClass("header__white");
 
-      if (vw > 900) {
+      if (vw > 1130) {
         $(".header-item-menu__text")
           .removeClass("text-color-secondary-light")
           .addClass("text-color-secondary-dark");
