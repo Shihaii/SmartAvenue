@@ -156,9 +156,43 @@ function initMenuButton() {
   });
 }
 
+function initSlick() {
+  $(".slick").on("init", function (event, slick) {
+    $(".slick-custom-slide-text-container__circular-progress").css(
+      "--progress",
+      (slick.slickCurrentSlide() + 1 / slick.slideCount) * 100
+    );
+    $(".slick-custom-slide-text-container-progress__label").text(
+      `${slick.slickCurrentSlide() + 1}/${slick.slideCount}`
+    );
+  });
+  $(".slick").on(
+    "afterChange",
+    function (event, slick, currentSlide, nextSlide) {
+      $(".slick-custom-slide-text-container__circular-progress").css(
+        "--progress",
+        ((currentSlide + 1) / slick.slideCount) * 100
+      );
+      $(".slick-custom-slide-text-container-progress__label").text(
+        `${currentSlide + 1}/${slick.slideCount}`
+      );
+    }
+  );
+  $(".slick").slick({
+    arrows: true,
+  });
+  $(".slick__button-prev").click(function () {
+    $(".slick").slick("slickPrev");
+  });
+  $(".slick__button-next").click(function () {
+    $(".slick").slick("slickNext");
+  });
+}
+
 $(document).ready(function () {
   initHeaderColors();
   initHandleScroll();
   initSwiper();
   initMenuButton();
+  initSlick();
 });

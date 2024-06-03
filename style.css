@@ -10,6 +10,8 @@
   --font-first-section-banner-label: 400 13px/22.1px "roboto";
   --font-first-section-slider-header-mobile: 700 31px/43.4px "roboto";
   --font-header-menu-responsive: 700 26px/36.4px "Montserrat";
+  --font-second-section-title: 800 28px/39.2px "Montserrat";
+  --font-progress-bar-label: 700 22px/30.6px "Montserrat";
   --text-color-primary-light: #000000;
   --text-color-secondary-light: #717171;
   --text-color-primary-dark: #ffffff;
@@ -17,6 +19,7 @@
   --text-color-third-dark: rgba(255, 255, 255, 0.6);
   --black-filter: rgba(0, 0, 0, 0.3);
   --red-primary: #f03e3e;
+  --light-gray: #e6e6e6;
   --swiper-navigation-color: #ffffff;
 }
 
@@ -275,6 +278,106 @@ body {
 .swiper-banner__label {
   font: var(--font-first-section-banner-label);
   color: var(--text-color-primary-dark);
+}
+
+.slick {
+  position: relative;
+  margin-top: 25vh;
+  height: 93vh;
+  width: 100vw;
+}
+.slick-custom-wrapper {
+  position: relative;
+}
+.slick-button-container {
+  height: 7.4rem;
+  width: 8vw;
+  position: absolute;
+  right: 40%;
+  bottom: 0;
+  background-color: #f03e3e;
+}
+.slick__button-prev {
+  display: block;
+  height: 100%;
+  width: 50%;
+}
+.slick-custom-slide {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.slick-custom-slide-image-container {
+  width: 65%;
+}
+.slick-custom-slide-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.slick-custom-slide-text-container {
+  position: absolute;
+  right: 5vw;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-bottom: 5vh;
+  height: 73vh;
+  width: 30%;
+  background-color: var(--text-color-primary-dark);
+}
+.slick-custom-slide-text-container__title {
+  font: var(--font-second-section-title);
+}
+.slick-custom-slide-text-container__text {
+  font: var(--font-first-section-slider-label);
+}
+.slick-custom-slide-text-container-progress {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.slick-custom-slide-text-container-progress__label {
+  font: var(--font-progress-bar-label);
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slick-custom-slide-text-container__circular-progress {
+  width: 72px;
+  height: 72px;
+  --size: 72px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 5px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  --progress: 25;
+}
+.slick-custom-slide-text-container__circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+.slick-custom-slide-text-container__circular-progress circle.bg {
+  stroke: var(--light-gray);
+}
+.slick-custom-slide-text-container__circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: var(--red-primary);
 }
 
 @media (max-width: 1130px) {
