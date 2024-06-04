@@ -2,17 +2,18 @@
   --font: 400 14px/23.8px "roboto";
   --font-header-label: 11px/19.8px "roboto";
   --font-first-section-slider-complex-name: 500 16px/22.4px "roboto";
-  --font-first-section-slider-header: 800 44px/61.6px "roboto";
+  --font-first-section-slider-header: 800 44px/61.6px "Montserrat";
   --font-first-section-slider-price: 600 32px/44.8px "Montserrat";
   --font-first-section-slider-label: 400 16px/28.8px "roboto";
   --font-first-section-slider-button: 800 14px/19.6px "Montserrat";
   --font-first-section-banner-title: 800 21px/29.4px "Montserrat";
   --font-first-section-banner-label: 400 13px/22.1px "roboto";
-  --font-first-section-slider-header-mobile: 700 31px/43.4px "roboto";
+  --font-first-section-slider-header-mobile: 700 31px/43.4px "Montserrat";
   --font-header-menu-responsive: 700 26px/36.4px "Montserrat";
   --font-second-section-title: 800 28px/39.2px "Montserrat";
   --font-progress-bar-label: 700 22px/30.6px "Montserrat";
 
+  --slider-button-bg: rgba(255, 255, 255, 0.2);
   --text-color-primary-light: #000000;
   --text-color-secondary-light: #717171;
   --text-color-primary-dark: #ffffff;
@@ -20,6 +21,8 @@
   --text-color-third-dark: rgba(255, 255, 255, 0.6);
   --black-filter: rgba(0, 0, 0, 0.3);
   --red-primary: #f03e3e;
+  --red-hover: #d22c2c;
+
   --light-gray: #e6e6e6;
 
   --swiper-navigation-color: #ffffff;
@@ -66,7 +69,7 @@ body {
   width: 100%;
   display: flex;
   height: 8.5rem;
-  justify-content: center;
+  padding-left: 10rem;
   gap: 2vw;
   z-index: 10;
   &-dropdown-menu {
@@ -91,6 +94,18 @@ body {
     justify-content: center;
     align-items: center;
     font: var(--font);
+    &-selected {
+      &::after,
+      ::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-top: 0.5rem var(--red-primary) solid;
+      }
+    }
     &-menu {
       display: flex;
       gap: 2vw;
@@ -105,7 +120,6 @@ body {
         font: var(--font);
         &:hover {
           cursor: pointer;
-          border-top: 0.5rem var(--red-primary) solid;
         }
       }
     }
@@ -123,6 +137,10 @@ body {
     }
     &__label {
       font: var(--font-header-label);
+
+      & a {
+        color: var(--text-color-secondary-dark);
+      }
     }
     &__icon {
       padding-right: 0.55rem;
@@ -154,8 +172,15 @@ body {
 }
 .swiper {
   width: 100vw;
-
   height: 100vh;
+  &-button-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
   &-container {
     position: relative;
   }
@@ -181,7 +206,6 @@ body {
     &__description-container {
       grid-area: 1/1;
       z-index: 1;
-      gap: 1rem;
       display: flex;
       flex-direction: column;
       padding-left: 10rem;
@@ -191,10 +215,12 @@ body {
       color: var(--text-color-primary-dark);
       &-complex-name {
         font: var(--font-first-section-slider-complex-name);
+        margin-bottom: 0.8rem;
       }
       &-header {
         max-width: 100%;
         font: var(--font-first-section-slider-header);
+        padding-bottom: 1.5rem;
       }
       &-price {
         font: var(--font-first-section-slider-price);
@@ -213,6 +239,11 @@ body {
         color: var(--text-color-primary-dark);
         font: var(--font-first-section-slider-button);
         text-decoration: none;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        &:hover {
+          background-color: var(--red-hover);
+        }
       }
       &-tags {
         display: flex;
@@ -232,6 +263,7 @@ body {
     right: 5vw;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     width: 40vw;
     height: 20.1rem;
     background-color: var(--red-primary);
@@ -239,13 +271,13 @@ body {
     &-button {
       &-container {
         height: 9.2rem;
-        width: 8vw;
+        width: 16.1rem;
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: auto;
+        display: flex;
+        right: 45vw;
         bottom: 0;
         z-index: 1;
+        background-color: var(--slider-button-bg);
       }
     }
     &__social-media {
@@ -290,15 +322,7 @@ body {
       right: 40%;
       bottom: 0;
       background-color: #f03e3e;
-    }
-  }
-  &__button {
-    &-prev {
-      display: block;
-      height: 100%;
-      width: 50%;
-    }
-    &-next {
+      z-index: 0;
     }
   }
 
@@ -387,6 +411,9 @@ body {
 
 @media (max-width: 1130px) {
   .header {
+    padding-left: 0;
+    justify-content: center;
+    background-color: var(--text-color-primary-dark);
     &-responsive {
       display: flex;
       flex-direction: column;
@@ -432,6 +459,10 @@ body {
       }
     }
     &-item {
+      &-selected {
+        border-top: none;
+        color: var(--text-color-primary-light);
+      }
       &-base {
         display: flex;
         justify-content: space-between;
@@ -462,20 +493,19 @@ body {
       }
       &-menu {
         display: none;
+        &-selected {
+          color: var(--text-color-primary-light);
+        }
         &-responsive {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 2vw;
+          gap: 3rem;
           height: 100%;
           background-color: var(--text-color-primary-dark);
         }
         &__text {
           font: var(--font-header-menu-responsive);
-          &:hover {
-            color: var(--text-color-primary-light);
-            border-top: none;
-          }
         }
       }
       &__social-media {

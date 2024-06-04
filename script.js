@@ -1,4 +1,24 @@
 function initHeaderColors() {
+  $("#header-menu__1").click(function(){
+    $(".header-item-menu__text").removeClass("header-item-selected");
+    $("#header-menu__1").addClass("header-item-selected");
+  })
+  $("#header-menu__2").click(function(){
+    $(".header-item-menu__text").removeClass("header-item-selected");
+    $("#header-menu__2").addClass("header-item-selected");
+  })
+  $("#header-menu__3").click(function(){
+    $(".header-item-menu__text").removeClass("header-item-selected");
+    $("#header-menu__3").addClass("header-item-selected");
+  })
+  $("#header-menu__4").click(function(){
+    $(".header-item-menu__text").removeClass("header-item-selected");
+    $("#header-menu__4").addClass("header-item-selected");
+  })
+  $("#header-menu__5").click(function(){
+    $(".header-item-menu__text").removeClass("header-item-selected");
+    $("#header-menu__5").addClass("header-item-selected");
+  })
   $(".header-item-menu__text").addClass("text-color-secondary-dark");
   $(".header-item-menu__text:hover").addClass("text-color-primary-dark");
   $(".header-item__text-general").addClass("text-color-primary-dark");
@@ -75,8 +95,8 @@ function initSwiper() {
 
     // Navigation arrows
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: "#swiper-button-next",
+      prevEl: "#swiper-button-prev",
     },
   });
 }

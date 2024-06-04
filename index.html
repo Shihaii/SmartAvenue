@@ -32,19 +32,19 @@
     </div>
     <ul id="header-item-menu" class="header-item-menu">
       <li class="header-item">
-        <a class="header-item-menu__text" href="#"> Головна</a>
+        <a id="header-menu__1" class="header-item-menu__text header-item-selected" href="#"> Головна</a>
       </li>
       <li class="header-item">
-        <a class="header-item-menu__text" href="#">Про комплекс</a>
+        <a id="header-menu__2" class="header-item-menu__text" href="#">Про комплекс</a>
       </li>
       <li class="header-item">
-        <a class="header-item-menu__text" href="#">Розташування</a>
+        <a id="header-menu__3" class="header-item-menu__text" href="#">Розташування</a>
       </li>
       <li class="header-item">
-        <a class="header-item-menu__text" href="#">Планування</a>
+        <a id="header-menu__4" class="header-item-menu__text" href="#">Планування</a>
       </li>
       <li class="header-item">
-        <a class="header-item-menu__text" href="#">Новини</a>
+        <a id="header-menu__5" class="header-item-menu__text" href="#">Новини</a>
       </li>
     </ul>
     <div id="header-item-group" class="header-item-group">
@@ -167,8 +167,8 @@
         </div>
       </div>
       <div class="swiper-banner-button-container">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div id="swiper-button-prev" class="swiper-button-custom"><img src="assets/Chevron - Left.png" alt=""></div>
+        <div id="swiper-button-next" class="swiper-button-custom"><img src="assets/Chevron - Right.png" alt=""></div>
       </div>
     </div>
     <div class="swiper-banner">
@@ -214,13 +214,37 @@
         </a>
       </div>
     </div>
-    <div>
+
+
+    <div class="slick-custom-slide">
+      <div class="slick-custom-slide-image-container">
+        <img class="slick-custom-slide-image" src="assets/Rectangle 50 (1).png" alt="">
+      </div>
+      <div class="slick-custom-slide-text-container">
+        <div class="slick-custom-slide-text-container-progress">
+          <svg class="slick-custom-slide-text-container__circular-progress">
+            <circle class="bg"></circle>
+            <circle class="fg"></circle>
+          </svg>
+          <p class="slick-custom-slide-text-container-progress__label">1/4</p>
+        </div>
+
+        <p class="slick-custom-slide-text-container__title">
+          Смарт квартири з ефективним використанням площі
+        </p>
+        <p class="slick-custom-slide-text-container__text">
+          За рахунок архітектурних рішень та розумних планувань квартири, простір використовується найбільш ефективно. Нічого зайвого
+        </p>
+        <a href="#" class="swiper-slide__description-container-button">
+          Обрати квартиру <img src="assets/Arrow - Right.png" />
+        </a>
+      </div>
     </div>
   </div>
-  <div class="slick-button-container">
+  <!-- <div class="slick-button-container">
     <div class="slick__button-prev"></div>
     <div class="slick__button-next"></div>
-  </div>
+  </div> -->
   <div style="
         width: 100vw;
         height: 140vh;
