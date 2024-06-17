@@ -1,84 +1,50 @@
-function initHeaderColors() {
-  $("#header-menu__1").click(function(){
+function initHeaderColors() {//selecting active meny item
+  $(".header-item-menu__text").click(function(){
     $(".header-item-menu__text").removeClass("header-item-selected");
-    $("#header-menu__1").addClass("header-item-selected");
+    $(this).addClass("header-item-selected");
   })
-  $("#header-menu__2").click(function(){
-    $(".header-item-menu__text").removeClass("header-item-selected");
-    $("#header-menu__2").addClass("header-item-selected");
-  })
-  $("#header-menu__3").click(function(){
-    $(".header-item-menu__text").removeClass("header-item-selected");
-    $("#header-menu__3").addClass("header-item-selected");
-  })
-  $("#header-menu__4").click(function(){
-    $(".header-item-menu__text").removeClass("header-item-selected");
-    $("#header-menu__4").addClass("header-item-selected");
-  })
-  $("#header-menu__5").click(function(){
-    $(".header-item-menu__text").removeClass("header-item-selected");
-    $("#header-menu__5").addClass("header-item-selected");
-  })
-  $(".header-item-menu__text").addClass("text-color-secondary-dark");
-  $(".header-item-menu__text:hover").addClass("text-color-primary-dark");
-  $(".header-item__text-general").addClass("text-color-primary-dark");
-  $(".header-item__select").addClass("text-color-primary-dark");
-  $(".header-item__label").addClass("text-color-secondary-dark");
 }
 
-function initHandleScroll() {
+function initHandleScroll() {//changes header colors depends on screen width and scroll
   const handleScroll = () => {
     let value = window.scrollY;
-    let vw = Math.max(
-      document.documentElement.clientWidth || 0,
-      window.innerWidth || 0
-    );
+    let vw = $(window).width();
     if (value > 5) {
       $("#header").addClass("header__white");
 
       if (vw > 1130) {
         $(".header-item-menu__text")
-          .removeClass("text-color-secondary-dark")
-          .addClass("text-color-secondary-light");
+        .css("color",`var(--text-color-secondary-light)`)
         $(".header-item-menu__text:hover")
-          .removeClass("text-color-primary-dark")
-          .addClass("text-color-primary-light");
+        .css("color",`var(--text-color-primary-light)`)
         $(".header-item__text-general")
-          .removeClass("text-color-primary-dark")
-          .addClass("text-color-primary-light");
+        .css("color",`var(--text-color-primary-light)`)
         $(".header-item__select")
-          .removeClass("text-color-primary-dark")
-          .addClass("text-color-primary-light");
+        .css("color",`var(--text-color-primary-light)`)
         $(".header-item__label")
-          .removeClass("text-color-secondary-dark")
-          .addClass("text-color-secondary-light");
+        .css("color",`var(--text-color-secondary-light)`)
       }
     } else {
       $("#header").removeClass("header__white");
 
       if (vw > 1130) {
         $(".header-item-menu__text")
-          .removeClass("text-color-secondary-light")
-          .addClass("text-color-secondary-dark");
+        .css("color",`var(--text-color-secondary-dark)`)
         $(".header-item-menu__text:hover")
-          .removeClass("text-color-primary-light")
-          .addClass("text-color-primary-dark");
+        .css("color",`var(--text-color-primary-dark)`)
         $(".header-item__text-general")
-          .removeClass("text-color-primary-light")
-          .addClass("text-color-primary-dark");
+        .css("color",`var(--text-color-primary-dark)`)
         $(".header-item__select")
-          .removeClass("text-color-primary-light")
-          .addClass("text-color-primary-dark");
+        .css("color",`var(--text-color-primary-dark)`)
         $(".header-item__label")
-          .removeClass("text-color-secondary-light")
-          .addClass("text-color-secondary-dark");
+        .css("color",`var(--text-color-secondary-dark)`)
       }
     }
   };
   $(document).scroll(handleScroll);
 }
 
-function initSwiper() {
+function initSwiper() {//init and config main slider
   const swiper = new Swiper(".swiper", {
     // Optional parameters
     on: {
@@ -124,59 +90,16 @@ function openMenu() {
     .toggleClass("header-item__phone")
     .toggleClass("header-item__phone-responsive");
 }
-function initMenuButton() {
-  $("#menu-button").click(function () {
-    $("body").toggleClass("disable-scroll");
-    $("#menu-button").toggleClass("show").toggleClass("hide");
-    $("#cross-button").toggleClass("show").toggleClass("hide");
+function initMenuButton() {//changes menu button on click
+  var toggled = false;
+  $("#header-dropdown-menu__icon").click(function () {
+    toggled = !toggled;
+    $("#header-dropdown-menu__icon").attr("src",toggled ? 'assets/cross-icon.svg' : 'assets/menu-icon.svg');
     openMenu();
-    $(".header-item-menu__text")
-      .removeClass("text-color-secondary-dark")
-      .addClass("text-color-secondary-light");
-    $(".header-item-menu__text")
-      .removeClass("text-color-secondary-dark")
-      .addClass("text-color-secondary-light");
-    $(".header-item-menu__text:hover")
-      .removeClass("text-color-primary-dark")
-      .addClass("text-color-primary-light");
-    $(".header-item__text-general")
-      .removeClass("text-color-primary-dark")
-      .addClass("text-color-primary-light");
-    $(".header-item__select")
-      .removeClass("text-color-primary-dark")
-      .addClass("text-color-primary-light");
-    $(".header-item__label")
-      .removeClass("text-color-secondary-dark")
-      .addClass("text-color-secondary-light");
-  });
-
-  $("#cross-button").click(function () {
-    $("body").toggleClass("disable-scroll");
-    $("#menu-button").toggleClass("show").toggleClass("hide");
-    $("#cross-button").toggleClass("show").toggleClass("hide");
-    openMenu();
-    $(".header-item-menu__text")
-      .removeClass("text-color-secondary-light")
-      .addClass("text-color-secondary-dark");
-    $(".header-item-menu__text")
-      .removeClass("text-color-secondary-light")
-      .addClass("text-color-secondary-dark");
-    $(".header-item-menu__text:hover")
-      .removeClass("text-color-primary-light")
-      .addClass("text-color-primary-dark");
-    $(".header-item__text-general")
-      .removeClass("text-color-primary-light")
-      .addClass("text-color-primary-dark");
-    $(".header-item__select")
-      .removeClass("text-color-primary-light")
-      .addClass("text-color-primary-dark");
-    $(".header-item__label")
-      .removeClass("text-color-secondary-light")
-      .addClass("text-color-secondary-dark");
   });
 }
 
-function initSlick() {
+function initSlick() { //initialize and config slick slider, progress bar 
   $(".slick").on("init", function (event, slick) {
     $(".slick-custom-slide__circular-progress").css(
       "--progress",
@@ -185,6 +108,7 @@ function initSlick() {
     $(".slick-custom-slide-progress__label").text(
       `${slick.slickCurrentSlide() + 1}/${slick.slideCount}`
     );
+    $("slick-dots").css("display","none");
   });
   $(".slick").on(
     "afterChange",
@@ -198,14 +122,29 @@ function initSlick() {
       );
     }
   );
-  $(".slick").slick({
-    arrows: false,
-    dots: true
-  });
-  $(".slick__button-prev").click(function () {
+  if($(window).width() > 1130){
+    $(".slick-button__next").show();
+    $(".slick-button__prev").show();
+    $(".slick").slick({
+      arrows: false,
+      dots: false
+    });
+  }
+  else{
+    $(".slick-button__next").hide();
+    $(".slick-button__prev").hide();
+    $(".slick").slick({
+      prevArrow: $('.slick-button__prev'),
+      nextArrow: $('.slick-button__next'),
+      arrows: false,
+      dots: true
+    });
+  }
+
+  $(".slick-button__prev").click(function () {
     $(".slick").slick("slickPrev");
   });
-  $(".slick__button-next").click(function () {
+  $(".slick-button__next").click(function () {
     $(".slick").slick("slickNext");
   });
 }
