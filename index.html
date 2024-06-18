@@ -17,6 +17,10 @@
     rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
 </head>
 
 <body>
@@ -290,20 +294,95 @@
   </div>
 
 
-
+  <div id="appartments-section" class="appartments-section">
+    <div class="appartments-section-button-left appartments-section-button"><img src="assets/slider-arrow-left.svg">
+    </div>
+    <div class="appartments-section-button appartments-section-button-right"><img src="assets/slider-arrow-right.svg">
+    </div>
+    <p class="appartments__title">Планування в Dream House</p>
+    <p class="appartments__text">На сьогодні є 8 різних варіантів планування Smart-квартир:</p>
+    <div class="appartments-button-group-section">
+      <div class="appartments-button-group-container">
+        <p class="appartments-button-group__title">Будинок</p>
+        <div class="appartments-button-group">
+          <div id="building-1" class="appartments-button-group__button building">1</div>
+          <div class="appartments-button-group__button building">2</div>
+          <div class="appartments-button-group__button building">3</div>
+          <div class="appartments-button-group__button building">4</div>
+          <div class="appartments-button-group__button building">5</div>
+        </div>
+      </div>
+      <div class="appartments-button-group-container">
+        <p class="appartments-button-group__title">Секцiя</p>
+        <div class="appartments-button-group">
+          <div id="section-1" class="appartments-button-group__button section">1</div>
+          <div class="appartments-button-group__button section">2</div>
+          <div class="appartments-button-group__button section">3</div>
+        </div>
+      </div>
+    </div>
+    <div class="appartments-slider-container">
+      <div class="appartments-slider">
+        <div class="swiper-wrapper">
+          <template class="template-card__appartment">
+            <div class="swiper-slide">
+              <div class="appartments-slider-item">
+                <div class="appartments-slider-item-image-container">
+                  <a href="assets/appartments-layout-1.jpg" data-fancybox="appartments-layouts"><img src="assets/appartments-layout-1.jpg"></a>
+                </div>
+                <div class="appartments-slider-item__title">
+                  <p>1C31K</p>
+                </div>
+                <div class="appartments-slider-item-tags">
+                  <div class="appartments-slider-item-tags-tag">
+                    <img src="assets/type-of-appartments__red.svg">
+                    <p class="appartments-slider-item-tags-tag__label">Тип квартири</p>
+                    <p class="appartments-slider-item-tags-tag__value">S (Smart)</p>
+                  </div>
+                  <div class="appartments-slider-item-tags-tag">
+                    <img src="assets/total-square-icon__red.svg">
+                    <p class="appartments-slider-item-tags-tag__label">Заг. площа</p>
+                    <p class="appartments-slider-item-tags-tag__value">31 м.кв</p>
+                  </div>
+                  <div class="appartments-slider-item-tags-tag">
+                    <img src="assets/floor-plan-icon__red.svg">
+                    <p class="appartments-slider-item-tags-tag__label">План поверху</p>
+                    <a href="assets/appartments-layout-1.jpg" data-fancybox="appartments-layouts" class="appartments-slider-item-tags-tag__value-link">Відкрити</a>
+                  </div>
+                </div>
+                <div class="appartments-slider-item-price">
+                  <p class="appartments-slider-item-price__label">Від</p>
+                  <p>440.000</p>
+                  <p class="appartments-slider-item-price__currency">грн</p>
+                </div>
+                <a href="#" class="appartments-slider-item-button">
+                  Замовити дзвінок <img src="assets/phone-icon__white.svg">
+                </a>
+                <div class="appartments-slider-item-download"><a class="appartments-slider-item-download__text"
+                    href="assets/Chainsaw Man [Volume 01].pdf" download>Завантажити в PDF</a> <a
+                    class="appartments-slider-item-download__img" href="assets/Chainsaw Man [Volume 01].pdf" download><img
+                      src="assets/download-icon-2.svg"></a></div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+   
   </div>
 
 
   <div style="
         width: 100vw;
         height: 140vh;
-        z-index: 0;
+        z-index: 0;        
         background-color: blueviolet;
       "></div>
   <footer></footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script type="module" src="script.js"></script>
 </body>
 

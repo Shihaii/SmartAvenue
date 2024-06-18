@@ -575,6 +575,212 @@ body {
   }
 }
 
+.appartments {
+
+  &-section {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 10rem 0 10rem;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 9rem;
+
+    &-button {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 7.2rem;
+      height: 7.4rem;
+      background-color: var(--slider-button-bg-dark);
+
+      &:hover {
+        background-color: var(--red-primary);
+        cursor: pointer;
+      }
+
+      &-left {
+        top: 0;
+        right: 17.2rem;
+      }
+
+      &-right {
+        top: 0;
+        right: 10rem;
+      }
+    }
+  }
+
+  &__title {
+    font: var(--font-appartments-title);
+  }
+
+  &__text {
+    font: var(--font-first-section-slider-label);
+    margin: 2rem 0 2rem 0;
+  }
+
+  &-button-group {
+    display: flex;
+
+    &-section {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    &__title {
+      font: var(--font);
+    }
+
+    &__button {
+      display: flex;
+      width: 3.8rem;
+      height: 4.2rem;
+      align-items: center;
+      justify-content: center;
+      // background-color:#f03e3e;
+      font: var(--font-first-section-banner-label);
+      // color: var(--text-color-primary-dark);
+      border: 0.1rem solid var(--appartments-button-hover-color);
+
+      &:hover {
+        background-color: var(--appartments-button-hover-color);
+        cursor: pointer;
+      }
+
+      &-selected {
+        background-color: var(--red-primary);
+        color: var(--text-color-primary-dark);
+
+        &:hover {
+          background-color: var(--red-primary);
+          color: var(--text-color-primary-dark);
+        }
+      }
+    }
+  }
+
+  &-slider {
+    &-container{
+      overflow: hidden;
+    }
+    &-item {
+      width: 100%;
+      height: 55.4rem;
+      max-width: 28.8rem;
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        font: var(--font-header-menu-responsive);
+      }
+
+      &-tags {
+        width: 100%;
+        margin: 1.2rem 0 2rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+
+        &-tag {
+          display: flex;
+
+          &__label {
+            font: var(--font);
+            color: var(--text-color-secondary-light);
+            margin: 0 1rem 0 2rem;
+            width: 10rem;
+          }
+
+          &__value {
+            font: var(--font);
+            color: var(--text-color-primary-light);
+
+            &-link {
+              font: var(--font);
+              color: var(--red-primary);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      &-price {
+        width: 100%;
+        margin: 0 0 3rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 1rem;
+        font: var(--font-appartments-slider-item-price);
+
+        &__label {
+          color: #8FA4B2;
+          font: var(--font-appartments-slider-item-price-label);
+        }
+
+        &__currency {}
+      }
+
+      &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 6rem;
+        color: var(--text-color-primary-dark);
+        font: var(--font-first-section-slider-button);
+        background-color: var(--red-primary);
+        text-decoration: none;
+
+        &:hover {
+          background-color: var(--red-hover);
+        }
+      }
+
+      &-download {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+        width: 100%;
+        height: 2.4rem;
+        margin: 1.7rem 0 0 0;
+
+        &__text {
+          font: var(--font-appartments-slider-item-download);
+          color: var(--text-color-appartments-slider-item-download);
+          text-decoration: none;
+        }
+      }
+
+      &-image-container {
+        width: 28.75rem;
+        height: 21.9rem;
+        margin: 0 0 1rem 0;
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+.fancybox{
+  &-custom-layout{
+    background-color: #b0494979;
+    
+  }
+}
+
 @media (max-width: 1130px) {
   .container-header {
     justify-content: center;
