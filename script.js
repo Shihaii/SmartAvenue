@@ -222,7 +222,8 @@ function initSlick() { //initialize and config slick slider, progress bar
       prevArrow: $('.slick-button__prev'),
       nextArrow: $('.slick-button__next'),
       arrows: false,
-      dots: true
+      dots: true,
+      appendDots: $(".slick-dots-custom")
     });
   }
 
@@ -231,6 +232,38 @@ function initSlick() { //initialize and config slick slider, progress bar
   });
   $(".slick-button__next").click(function () {
     $(".slick").slick("slickNext");
+  });
+}
+
+function initConstructionProgressSlider() { //initialize and config slick slider, progress bar 
+  $(".construction-progress-slider").on("init", function (event, slick) {
+
+  });
+  if($(window).width() > 1130){
+    $(".construction-progress-slider-button__next").show();
+    $(".construction-progress-slider-button__prev").show();
+    $(".construction-progress-slider").slick({
+      arrows: false,
+      dots: false
+    });
+  }
+  else{
+    $(".construction-progress-slider-button__next").hide();
+    $(".construction-progress-slider-button__prev").hide();
+    $(".construction-progress-slider").slick({
+      prevArrow: $('.construction-progress-slider-button__prev'),
+      nextArrow: $('.construction-progress-slider-button__next'),
+      arrows: false,
+      dots: true,
+      appendDots: $(".construction-progress-slider-dots")
+    });
+  }
+
+  $(".construction-progress-slider-button__prev").click(function () {
+    $(".construction-progress-slider").slick("slickPrev");
+  });
+  $(".construction-progress-slider-button__next").click(function () {
+    $(".construction-progress-slider").slick("slickNext");
   });
 }
 
@@ -410,4 +443,5 @@ $(document).ready(function () {
   initAppartmentsFilter();
   initFancybox ();
   initNewsSlider();
+  initConstructionProgressSlider()
 });
