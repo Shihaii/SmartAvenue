@@ -112,6 +112,45 @@ function initAppartmentsSlider() {
     },
   });
 }
+
+function initNewsSlider(){
+  const newsSlider = new Swiper(".news-slider", {//init and config slider for news
+    // Optional parameters
+    on: {
+      init: function () {
+        console.log("news swiper initialized");
+      },
+    },
+    direction: "horizontal",
+    loop: true,
+    slidesPerView:3,
+    allowTouchMove: false,
+    autoplay: {
+      delay: 10000,
+    },
+    spaceBetween:30,
+breakpoints: {
+      // when window width is >= 0px
+      0: {
+        slidesPerView: 1,
+      },
+      // when window width is >= 880px
+      880: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 1445px
+      1445: {
+        slidesPerView: 3,
+      }
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".news-section-button-right",
+      prevEl: ".news-section-button-left",
+    },
+  });
+}
+
 function openMenu() {//changes styles for header to transform it into popup
   $("#header").toggleClass("header").toggleClass("header-responsive");
   $("#header-item-menu")
@@ -370,4 +409,5 @@ $(document).ready(function () {
   initSlick();
   initAppartmentsFilter();
   initFancybox ();
+  initNewsSlider();
 });
