@@ -1014,7 +1014,67 @@ body {
   }
   }
   
+.complex-gallery{
+  
+  &-section{
+    margin: 8.8rem 10rem 0 10rem;
 
+    &__title{
+      font: var(--font-appartments-title);
+      margin: 0 0 4rem 0;
+    }
+  }
+
+  &-slider{
+    height: 65.5rem;
+
+    &-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: var(--red-primary);
+      }
+
+      &__next{
+        height: 7.4rem;
+        width: 7.2rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: var(--slider-button-bg-dark);
+        z-index: 1;
+      }
+
+      &__prev{
+        height: 7.4rem;
+        width: 7.2rem;
+        position: absolute;
+        right: 7.2rem;
+        bottom: 0;
+        background-color: var(--slider-button-bg-dark);
+        z-index: 1;
+      }
+    }
+
+    &-container{
+      position: relative;
+    }
+
+    &-slide{
+      width: 100%;
+      height: 100%;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
 
 .footer{
   position: relative;
@@ -1362,6 +1422,7 @@ body {
     }
   }
 
+
   .slick {
     height: 63rem;
     margin-top: 11.6rem;
@@ -1498,6 +1559,14 @@ body {
   }
 }
 
+  .complex-gallery{
+  
+      &-section{
+        margin: 8.8rem 6rem 0 6rem;
+      }
+  }
+
+
   .footer{
     margin: 8.5rem 0 0 3rem;
    padding: 4rem 0 6.2rem 3rem;
@@ -1599,6 +1668,15 @@ body {
   }
 
   .swiper {
+
+      &-pagination-bullet{
+        margin: 0 0.25rem !important;
+
+        &-active{
+          background-color: var(--red-hover) !important;
+        }
+      }
+
     &-slide {
       &__description-container {
         padding-left: 5vw;
@@ -1757,6 +1835,35 @@ body {
   .news{
     &-section{
       margin: 6rem 2.5rem 0 2.5rem;
+    }
+  }
+
+  .complex-gallery{
+    &-section{
+      margin: 8.8rem 0 11.8rem 0;
+
+      &__title{
+        margin: 0 2.5rem 2.7rem 2.5rem;
+      }
+    }
+    &-slider{
+      height: 25.4rem;
+
+        &-dots{
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          margin: 0;
+          left: 50% !important;
+          transform: translateX(-50%);
+          bottom: -3.3rem !important;
+          list-style-type: none;
+          z-index: 1;
+
+          &-container{
+             position:relative;
+          }
+        }
     }
   }
 }
