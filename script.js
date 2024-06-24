@@ -151,6 +151,47 @@ breakpoints: {
   });
 }
 
+function initComplexGallerySlider(){
+
+  const complexGallerySlider = new Swiper(".complex-gallery-slider", {//init and config slider for complex gallery
+    // Optional parameters
+    on: {
+      init: function () {
+        console.log("gallery swiper initialized");
+      },
+    },
+    direction: "horizontal",
+    loop: true,
+    slidesPerView:1,
+    allowTouchMove: true,
+    autoplay: {
+      delay: 10000,
+    },
+    spaceBetween:20,
+    // Navigation arrows
+
+    pagination:{
+      el:".complex-gallery-slider-dots",
+      clickable: true,
+      renderBullet: function (index,className) {
+        return '<span class="' + className + '"></span>';
+      }
+    },
+    navigation: {
+      nextEl: ".complex-gallery-slider-button__next",
+      prevEl: ".complex-gallery-slider-button__prev",
+    },
+  });
+
+  if($(window).width() > 560){
+    $('.complex-gallery-slider-dots-container').hide();
+  }
+  else{
+    $('.complex-gallery-slider-button__prev').hide();
+    $('.complex-gallery-slider-button__next').hide();
+  }
+}
+
 function openMenu() {//changes styles for header to transform it into popup
   $("#header").toggleClass("header").toggleClass("header-responsive");
   $("#header-item-menu")
@@ -443,5 +484,6 @@ $(document).ready(function () {
   initAppartmentsFilter();
   initFancybox ();
   initNewsSlider();
-  initConstructionProgressSlider()
+  initConstructionProgressSlider();
+  initComplexGallerySlider();
 });
