@@ -23,6 +23,8 @@
   --font-footer-news-date: 400 1.2rem/1.92rem "Roboto";
   --font-footer-social-media-title: 700 1.3rem/1.95rem "Roboto";
   --font-footer-label: 400 1.1rem/1.87rem "Roboto";
+  --font-contact-form-notation: 400 1.2rem/2.16rem "Roboto";
+  --font-map-modal-title: 900 1.4rem/2.24rem "Roboto";
 
   --slider-button-bg: rgba(255, 255, 255, 0.2);
   --slider-button-bg-dark: rgba(0, 0, 0, 0.2);
@@ -48,7 +50,8 @@
   --footer-bg-color-primary: #333333;
   --footer-title-block: #2D2D2D;
   --footer-title-block-text: rgba(255, 255, 255, 0.76);
-
+  --contact-form-notation:#637079;
+  --error:#F2994A;
 }
 
 html {
@@ -108,7 +111,6 @@ body {
 .container {
   width: 100%;
 
-  // max-width: ;
   &-header {
     width: 100%;
     display: flex;
@@ -132,6 +134,19 @@ body {
 
 .space-for-icon {
   padding-left: 2rem;
+}
+
+.error{
+  font: var(--font-header-label);
+  color: var(--error);
+  padding: 0.6rem 0 0 0;
+
+  &::after{
+    content: url('assets/allert-triangle-icon.svg');
+    position: absolute;
+    top: 6.4rem;
+    right: 1.5rem;
+}
 }
 
 .header {
@@ -1076,6 +1091,133 @@ body {
   }
 }
 
+.contact-section{
+  box-sizing: border-box;
+  margin: 7.4rem 10rem 0 10rem;
+  width: 100vw;
+  height: 65rem;
+  display: flex;
+  gap: 4.2rem;
+  
+  &-map{
+    max-width: 80.5rem;
+    width: 100%;
+    height: 65rem;
+
+    &-modal{
+      display: flex;
+      flex-direction: column;
+
+      &__title{
+        font: var(--font-map-modal-title);
+      }
+
+      &-item{
+        display: flex;
+        gap: 0.8rem;
+        margin: 0.8rem 0 0 0;
+
+        &__img{
+         align-self: flex-start;
+        }
+
+        &__text{
+          font: var(--font-first-section-banner-label);
+          color: var(--footer-bg-color-primary);
+          max-width: 20rem;
+          width: 100%;
+        }
+        &__link{
+          font: var(--font-first-section-banner-label);
+          color: var(--red-primary);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &-form{
+    position: relative;
+    max-width: 39.3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-item{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title{
+      font: var(--font-appartments-title);
+      color: var(--text-color-primary-light);
+    }
+
+    &__label{
+      font: var(--font-footer-news-date);
+      color: var(--text-color-appartments-slider-item-download);
+      padding: 2rem 0 1rem 0;
+    }
+
+    &__input{
+      box-sizing: border-box;
+      width: 100%;
+      height: 4.8rem;
+      background-color: var(--appartments-button-hover-color);
+      border: none;
+      padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+      font: var(--font);
+
+      &-phone{
+        padding: 1.2rem 1.5rem 1.2rem 3.6rem;
+      }
+    }
+
+    &__img{
+      position: absolute;
+      max-width: 1.6rem;
+      top: 6.8rem;
+      left: 1.5rem;
+    }
+    &__text-area{
+      box-sizing: border-box;
+      width: 100%;
+      height: 10rem;
+      background-color: var(--appartments-button-hover-color);
+      border: none;
+      padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+      font: var(--font);
+    }
+
+    &-button-container{
+      display: flex;
+      gap: 1.5rem;
+      margin: 2.5rem 0 0 0;
+    }
+
+    &__notation{
+      font: var(--font-contact-form-notation);
+      color: var(--contact-form-notation);
+    }
+
+    &__submit{
+      width: 100%;
+      max-width: 13.3rem;
+      height: 5.6rem;
+      background-color: var(--red-primary);
+      color: var(--text-color-primary-dark);
+      font: var(--font-first-section-slider-button);  
+      border: none;
+      padding: 0 2.2rem 0 2.2rem;
+
+      &:hover{
+        background-color: var(--red-hover);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .footer{
   position: relative;
   box-sizing: border-box;
@@ -1566,6 +1708,22 @@ body {
       }
   }
 
+  .contact-section{
+    height:auto;
+    flex-direction: column;
+    margin: 7.4rem 0 0 0;
+    align-items: center;
+
+    &-map{
+      max-width: 100vw;
+    }
+
+    &-form{
+      box-sizing: border-box ;
+      max-width: 37.5rem;
+      padding: 0 2.5rem 0 2.5rem;
+    }
+  }
 
   .footer{
     margin: 8.5rem 0 0 3rem;
@@ -1864,6 +2022,13 @@ body {
              position:relative;
           }
         }
+    }
+  }
+
+  .contact-section{
+
+    &-map{
+      height: 49.6rem;
     }
   }
 }
