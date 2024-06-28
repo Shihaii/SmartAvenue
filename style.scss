@@ -278,7 +278,8 @@ body {
   }
 
   &-slide {
-    width: auto;
+    display: flex !important;
+    justify-content: center ;
 
     &__container {
       display: grid;
