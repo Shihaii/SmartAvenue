@@ -106,35 +106,49 @@ function initAppartmentsSlider() {
     direction: "horizontal",
     loop: true,
     allowTouchMove: false,
-    // slidesOffsetBefore: 100,
-    // slidesOffsetAfter: 100,
-    // slidesPerView: 'auto',
-    slidesPerView: 4,
-    // pagination: true,
 
-    // breakpoints: {
-    //   // when window width is >= 320px
-    //   320: {
-    //     slidesPerView: 2,
-    //     spaceBetween: 20
-    //   },
-    //   // when window width is >= 480px
-    //   480: {
-    //     slidesPerView: 3,
-    //     spaceBetween: 30
-    //   },
-    //   // when window width is >= 640px
-    //   640: {
-    //     slidesPerView: 4,
-    //     spaceBetween: 40
-    //   }
-    // },
+    breakpoints: {
+      // when window width is >= 320px
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // when window width is >= 480px
+      654: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      // when window width is >= 640px
+      1130: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1200:{
+        slidesPerView: 4,
+        spaceBetween: 30
+      }
+    },
+
+    pagination: {
+      el: ".appartments-section-dots",
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '"></span>';
+      },
+    },
     // Navigation arrows
     navigation: {
       nextEl: ".appartments-section-button-left",
       prevEl: ".appartments-section-button-right",
     },
   });
+
+  if ($(window).width() > 1130) {
+    $(".appartments-section-dots-container").hide();
+  } else {
+    $(".appartments-section-button-left").hide();
+    $(".appartments-section-button-right").hide();
+  }
 }
 
 //init and config slider for news
@@ -245,14 +259,16 @@ function openMenu() {
 //changes menu button on click
 function initMenuButton() {
   var toggled = false;
-  $("#header-dropdown-menu__icon").click(function () {
-    toggled = !toggled;
-    $("#header-dropdown-menu__icon").attr(
-      "src",
-      toggled ? "assets/cross-icon.svg" : "assets/menu-icon.svg"
-    );
-    openMenu();
-  });
+  if($(window).width()<=560){
+    $("#header-dropdown-menu__icon, .header-item-menu__text").click(function () {
+      toggled = !toggled;
+      $("#header-dropdown-menu__icon").attr(
+        "src",
+        toggled ? "assets/cross-icon.svg" : "assets/menu-icon.svg"
+      );
+      openMenu();
+    });
+  }
 }
 
 //initialize and config slick slider, progress bar
@@ -514,12 +530,14 @@ function initAppartmentsFilter() {
 }
 function initFancybox() {
   Fancybox.bind('[data-fancybox="appartments-layouts"]', {
-    // Your custom options for a specific gallery
-    // Toolbar: false,
-    // baseClass : 'fancybox-custom-layout',
-    // prev: {
-    //   tpl: '<button class="f-button" title="{{PREV}}" data-fancybox-prev> </button>',
-    // },
+    Thumbs: false,
+    Toolbar: {
+      display: {
+        left: [],
+        middle: ["infobar"],
+        right: ["close"],
+      },
+    },
   });
 }
 
