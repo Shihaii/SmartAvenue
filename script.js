@@ -528,8 +528,6 @@ function initAppartmentsFilter() {
     generateCards(appartments, selectedBuilding, selectedSection);
   });
 }
-
-//init and config fancybox
 function initFancybox() {
   Fancybox.bind('[data-fancybox="appartments-layouts"]', {
     Thumbs: false,
