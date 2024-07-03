@@ -52,6 +52,8 @@
   --footer-title-block-text: rgba(255, 255, 255, 0.76);
   --contact-form-notation:#637079;
   --error:#F2994A;
+  --fancybox-bg-color: #FDFDFD;
+  --fancybox-bg-color: #FDFDFD;
 }
 
 html {
@@ -261,6 +263,22 @@ body {
 .swiper {
   width: 100vw;
   height: 100vh;
+
+  &-pagination-bullet{
+    margin: 0 0.25rem !important;
+
+    &-active{
+      background-color: var(--red-hover) !important;
+    }
+  }
+
+  &-pagination-bullet{
+    margin: 0 0.25rem !important;
+
+    &-active{
+      background-color: var(--red-hover) !important;
+    }
+  }
 
   &-button-custom {
     display: flex;
@@ -799,10 +817,94 @@ body {
   }
 }
 .fancybox{
-  &-custom-layout{
-    background-color: #b0494979;
-    
+
+  &__content{
+    width: 100% !important;
+    height: 59.6rem !important;
+    background-color: var(--fancybox-bg-color) !important;
   }
+
+  &__backdrop{
+    background-color: var(--black-filter-05) !important;
+  }
+
+  &__slide{
+    padding: 0 22rem 0 22rem !important;
+  }
+
+  &__nav{
+    --f-button-bg: var(--slider-button-bg-dark) !important;
+    --f-button-border-radius: none !important; 
+    --f-button-width: 7.2rem !important;
+    --f-button-height: 7.4rem !important;
+    --f-button-hover-bg: var(--red-primary) !important;
+    --f-button-active-bg: var(--red-primary) !important;
+  }
+
+  &__infobar{
+    position: absolute!important;
+    bottom: 7rem;
+  }
+
+}
+
+.f-button{
+  position: absolute !important;
+  top: 7rem;
+  right: 22rem;
+  background-color: transparent !important;
+}
+
+.is-horizontal .fancybox__nav .f-button.is-next {
+  right: 22rem !important;
+}
+
+.is-horizontal .fancybox__nav .f-button.is-prev {
+  left: 22rem !important;
+
+  &__content{
+    width: 100% !important;
+    height: 59.6rem !important;
+    background-color: var(--fancybox-bg-color) !important;
+  }
+
+  &__backdrop{
+    background-color: var(--black-filter-05) !important;
+  }
+
+  &__slide{
+    padding: 0 22rem 0 22rem !important;
+  }
+
+  &__nav{
+    --f-button-bg: var(--slider-button-bg-dark) !important;
+    --f-button-border-radius: none !important; 
+    --f-button-width: 7.2rem !important;
+    --f-button-height: 7.4rem !important;
+    --f-button-hover-bg: var(--red-primary) !important;
+    --f-button-active-bg: var(--red-primary) !important;
+  }
+
+  &__infobar{
+    position: absolute!important;
+    bottom: 7rem;
+  }
+
+}
+
+.f-button{
+  position: absolute !important;
+  top: 7rem;
+  right: 22rem;
+  background-color: transparent !important;
+}
+
+.is-horizontal .fancybox__nav .f-button.is-next {
+  right: 22rem !important;
+}
+
+.is-horizontal .fancybox__nav .f-button.is-prev {
+  left: 22rem !important;
 }
 
 .news{
@@ -1638,6 +1740,32 @@ body {
     }
   }
 
+  .appartments{
+
+    &-section{
+      padding: 0 0 0 3rem;
+  
+      .swiper-slide{
+        min-width: 25.3rem;
+      }
+      &-dots{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        bottom: -3.8rem !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+  
+      }
+    }
+  
+    &-slider{
+      &-item{
+        max-width: 25.3rem;
+      }
+    }
+  }
+
 .news{
 
   &-section{
@@ -1965,6 +2093,20 @@ body {
     }
   }
 
+  .appartments{
+
+    &-section{
+      padding: 0 2.5rem 0 2.5rem;
+    }
+
+    &-slider{
+
+      &-item{
+        max-width: 32.5rem;
+      }
+    }
+  }
+
   .construction-progress{
 
     &-slider{
@@ -1993,7 +2135,8 @@ body {
 
   .news{
     &-section{
-      margin: 6rem 2.5rem 0 2.5rem;
+      margin: 9.8rem 2.5rem 0 2.5rem;
+      margin: 9.8rem 2.5rem 0 2.5rem;
     }
   }
 
