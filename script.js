@@ -1,3 +1,10 @@
+var toggled = false;
+var selectedBuilding = 1;
+var selectedSection = 1;
+var contact_section_msg_name_required = "Необхідно заповнити поле";
+var contact_section_msg_phone_required = "Необхідно заповнити поле";
+var contact_section_msg_phone_regex = "Необхідно заповнити поле";
+ 
  //selecting active meny item
 function initHeaderColors() {
   $(".header-item-menu__text").click(function () {
@@ -258,7 +265,6 @@ function openMenu() {
 
 //changes menu button on click
 function initMenuButton() {
-  var toggled = false;
   if($(window).width()<=560){
     $("#header-dropdown-menu__icon, .header-item-menu__text").click(function () {
       toggled = !toggled;
@@ -507,8 +513,7 @@ function generateCards(appartments, building, section) {
     initAppartmentsSlider();
   }
 }
-var selectedBuilding = 1;
-var selectedSection = 1;
+
 function initAppartmentsFilter() {
   $("#section-1").addClass("appartments-button-group__button-selected");
   $("#building-1").addClass("appartments-button-group__button-selected");
@@ -555,7 +560,7 @@ function initValidation() {
   $.validator.addMethod(
     "regex",
     function (value, element, regexp) {
-      var re = new RegExp(regexp);
+      let re = new RegExp(regexp);
       return this.optional(element) || re.test(value);
     },
     "Please check your input."
@@ -574,10 +579,10 @@ function initValidation() {
     },
     messages: {
       "contact-section-form__name": {
-        required: "Необхідно заповнити поле",
+        required: contact_section_msg_name_required,
       },
       "contact-section-form__phone": {
-        required: "Необхідно заповнити поле",
+        required: contact_section_msg_phone_required,
         regex: "Необхідно заповнити поле",
       },
     },
@@ -614,25 +619,25 @@ async function initMap() {
   });
 
   let contentString =
-    '<div class="contact-section-map-modal">' +
-    '<p class="contact-section-map-modal__title">Житловий комплекс “Dream House”</p>' +
-    '<div class="contact-section-map-modal-item">' +
-    '<img class="contact-section-map-modal-item__img" src="assets/geolocation-icon__white.svg" alt="">' +
-    '<p class="contact-section-map-modal-item__text">с.Крюковщина 191, Київська область</p>' +
-    "</div>" +
-    '<div class="contact-section-map-modal-item">' +
-    '<img class="contact-section-map-modal-item__img" src="assets/phone-icon__gray.svg" alt="">' +
-    '<p class="contact-section-map-modal-item__text">+380 99 2337 999</p>' +
-    "</div>" +
-    '<div class="contact-section-map-modal-item">' +
-    '<img class="contact-section-map-modal-item__img" src="assets/email-icon__white.svg" alt="">' +
-    '<a href="#" class="contact-section-map-modal-item__link">sales@domail.com</a>' +
-    "</div>" +
-    '<div class="contact-section-map-modal-item">' +
-    '<img class="contact-section-map-modal-item__img" src="assets/time-icon__white.svg" alt="">' +
-    '<p class="contact-section-map-modal-item__text">08:00 – 18:00</p>' +
-    "</div>" +
-    "</div>";
+    `<div class=contact-section-map-modal> 
+    <p class=contact-section-map-modal__title>Житловий комплекс “Dream House”</p>
+    <div class=contact-section-map-modal-item>
+    <img class=contact-section-map-modal-item__img src=assets/geolocation-icon__white.svg alt=>
+    <p class=contact-section-map-modal-item__text>с.Крюковщина 191, Київська область</p>
+    </div>
+    <div class=contact-section-map-modal-item>
+    <img class=contact-section-map-modal-item__img src=assets/phone-icon__gray.svg alt=>
+    <p class=contact-section-map-modal-item__text>+380 99 2337 999</p>
+    </div>
+    <div class=contact-section-map-modal-item>
+    <img class=contact-section-map-modal-item__img src=assets/email-icon__white.svg alt=>
+    <a href=# class=contact-section-map-modal-item__link>sales@domail.com</a>
+    </div>
+    <div class=contact-section-map-modal-item>
+    <img class=contact-section-map-modal-item__img src=assets/time-icon__white.svg alt=>
+    <p class=contact-section-map-modal-item__text>08:00 – 18:00</p>
+    </div>
+    </div>`;
 
   const infoWindow = new InfoWindow({
     ariaLabel: "SmartAvenue",
@@ -648,9 +653,7 @@ async function initMap() {
   });
 
   // Add a click listener for each marker, and set up the info window.
-  marker.addListener("click", ({ domEvent, latLng }) => {
-    const { target } = domEvent;
-
+  marker.addListener("click", () => {
     infoWindow.close();
     infoWindow.setContent(contentString);
     infoWindow.open(marker.map, marker);
