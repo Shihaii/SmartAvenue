@@ -4,10 +4,11 @@ var selectedSection = 1;
 var contact_section_msg_name_required = "Необхідно заповнити поле";
 var contact_section_msg_phone_required = "Необхідно заповнити поле";
 var contact_section_msg_phone_regex = "Необхідно заповнити поле";
+var window_width = $(window).width();
  
  //selecting active meny item
 function initHeaderColors() {
-  $(".header-item-menu__text").click(function () {
+  $(document).on('click', ".header-item-menu__text",function () {
     $(".header-item-menu__text").removeClass("header-item-selected");
     $(this).addClass("header-item-selected");
   });
@@ -96,61 +97,71 @@ function initSwiper() {
     },
   });
 
-  if ($(window).width() < 1130) {
+  if (window_width < 1130) {
     $(".swiper-banner-button-container").css("display", "none");
   }
 }
 
-  //init and config slider for appartments
+//init and config slider for appartments
+var appartmentsSlider = new Swiper(".appartments-slider", {
+  // Optional parameters
+  on: {
+    init: function () {
+      console.log("swiper initialized");
+    },
+    update: function () {
+      console.log("swiper updated");
+    },
+  },
+  direction: "horizontal",
+  loop: true,
+  allowTouchMove: false,
+
+  breakpoints: {
+    // when window width is >= 320px
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    // when window width is >= 480px
+    654: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    },
+    // when window width is >= 640px
+    1130: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    1200:{
+      slidesPerView: 4,
+      spaceBetween: 30
+    }
+  },
+
+  pagination: {
+    el: ".appartments-section-dots",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '"></span>';
+    },
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".appartments-section-button-left",
+    prevEl: ".appartments-section-button-right",
+  },
+});
+
+if (window_width > 1130) {
+  $(".appartments-section-dots-container").hide();
+} else {
+  $(".appartments-section-button-left").hide();
+  $(".appartments-section-button-right").hide();
+}
+  //hiding navigation for appartments slider depends on screen size
 function initAppartmentsSlider() {
-  const appartmentsSlider = new Swiper(".appartments-slider", {
-    // Optional parameters
-    on: {
-      init: function () {
-        console.log("swiper initialized");
-      },
-    },
-    direction: "horizontal",
-    loop: true,
-    allowTouchMove: false,
-
-    breakpoints: {
-      // when window width is >= 320px
-      0: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-      // when window width is >= 480px
-      654: {
-        slidesPerView: 4,
-        spaceBetween: 40
-      },
-      // when window width is >= 640px
-      1130: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      1200:{
-        slidesPerView: 4,
-        spaceBetween: 30
-      }
-    },
-
-    pagination: {
-      el: ".appartments-section-dots",
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '"></span>';
-      },
-    },
-    // Navigation arrows
-    navigation: {
-      nextEl: ".appartments-section-button-left",
-      prevEl: ".appartments-section-button-right",
-    },
-  });
-
-  if ($(window).width() > 1130) {
+  if (window_width > 1130) {
     $(".appartments-section-dots-container").hide();
   } else {
     $(".appartments-section-button-left").hide();
@@ -170,7 +181,7 @@ function initNewsSlider() {
     direction: "horizontal",
     loop: true,
     slidesPerView: 3,
-    allowTouchMove: false,
+    allowTouchMove: true,
     autoplay: {
       delay: 10000,
     },
@@ -188,11 +199,6 @@ function initNewsSlider() {
       1445: {
         slidesPerView: 3,
       },
-    },
-    // Navigation arrows
-    navigation: {
-      nextEl: ".news-section-button-right",
-      prevEl: ".news-section-button-left",
     },
   });
 }
@@ -229,7 +235,7 @@ function initComplexGallerySlider() {
     },
   });
 
-  if ($(window).width() > 560) {
+  if (window_width > 560) {
     $(".complex-gallery-slider-dots-container").hide();
   } else {
     $(".complex-gallery-slider-button__prev").hide();
@@ -265,8 +271,8 @@ function openMenu() {
 
 //changes menu button on click
 function initMenuButton() {
-  if($(window).width()<=560){
-    $("#header-dropdown-menu__icon, .header-item-menu__text").click(function () {
+  if(window_width<=1130){
+    $(document).on('click','#header-dropdown-menu__icon, .header-item-menu__text', function () {
       toggled = !toggled;
       $("#header-dropdown-menu__icon").attr(
         "src",
@@ -301,7 +307,7 @@ function initSlick() {
       );
     }
   );
-  if ($(window).width() > 1130) {
+  if (window_width > 1130) {
     $(".slick-button__next").show();
     $(".slick-button__prev").show();
     $(".slick").slick({
@@ -320,10 +326,10 @@ function initSlick() {
     });
   }
 
-  $(".slick-button__prev").click(function () {
+  $(document).on('click', '.slick-button__prev', function () {
     $(".slick").slick("slickPrev");
   });
-  $(".slick-button__next").click(function () {
+  $(document).on('click', '.slick-button__next', function () {
     $(".slick").slick("slickNext");
   });
 }
@@ -331,7 +337,7 @@ function initSlick() {
 //initialize and config slick slider, progress bar
 function initConstructionProgressSlider() {
   $(".construction-progress-slider").on("init", function (event, slick) {});
-  if ($(window).width() > 1130) {
+  if (window_width > 1130) {
     $(".construction-progress-slider-button__next").show();
     $(".construction-progress-slider-button__prev").show();
     $(".construction-progress-slider").slick({
@@ -350,10 +356,10 @@ function initConstructionProgressSlider() {
     });
   }
 
-  $(".construction-progress-slider-button__prev").click(function () {
+  $(document).on('click', '.construction-progress-slider-button__prev', function () {
     $(".construction-progress-slider").slick("slickPrev");
   });
-  $(".construction-progress-slider-button__next").click(function () {
+  $(document).on('click', '.construction-progress-slider-button__next', function () {
     $(".construction-progress-slider").slick("slickNext");
   });
 }
@@ -473,76 +479,75 @@ const appartments = [
 
 function generateCards(appartments, building, section) {
   let template = $(".template-card__appartment").html();
-  let filtered_appartments = appartments.filter((appartment) => {
-    return appartment.building == building && appartment.section == section;
-  });
-  $(".appartments-slider .swiper-wrapper .swiper-slide").remove();
-  for (let i = 0; i < filtered_appartments.length; i++) {
-    let newCard = $(template);
-    newCard
-      .find(".appartments-slider-item-image-container img")
-      .attr("src", filtered_appartments[i].layout_img);
-    newCard
-      .find(".appartments-slider-item-image-container a")
-      .attr("href", filtered_appartments[i].layout_img);
-    newCard
-      .find(".appartments-slider-item__title p")
-      .text(filtered_appartments[i].title);
-    newCard
-      .find(".appartments-slider-item-tags-tag__value:eq(0)")
-      .text(filtered_appartments[i].type);
-    newCard
-      .find(".appartments-slider-item-tags-tag__value:eq(1)")
-      .text(filtered_appartments[i].total_squares);
-    newCard
-      .find(".appartments-slider-item-tags-tag__value-link")
-      .attr("href", filtered_appartments[i].layout_img);
-    newCard
-      .find(".appartments-slider-item-price p:eq(1)")
-      .text(filtered_appartments[i].price);
-    newCard
-      .find(".appartments-slider-item-download__text")
-      .attr("href", filtered_appartments[i].pdf);
-    newCard
-      .find(".appartments-slider-item-download__img")
-      .attr("href", filtered_appartments[i].pdf);
-    newCard
-      .find(".appartments-slider-item-button")
-      .attr("href", "tel:" + filtered_appartments[i].phone_number);
-    $(".appartments-slider .swiper-wrapper").append(newCard);
-    initAppartmentsSlider();
+  let filtered_appartments = appartments.filter(appartment => appartment.building == building && appartment.section == section);
+  $(".appartments-slider .swiper-wrapper .swiper-slide, .appartments-slider__nothing-found").remove();
+  if(filtered_appartments.length > 0){
+   console.log("gener")
+    for (let i = 0; i < filtered_appartments.length; i++) {
+      let newCard = $(template);
+      newCard
+        .find(".appartments-slider-item-image-container img")
+        .attr("src", filtered_appartments[i].layout_img);
+      newCard
+        .find(".appartments-slider-item-image-container a")
+        .attr("href", filtered_appartments[i].layout_img);
+      newCard
+        .find(".appartments-slider-item__title p")
+        .text(filtered_appartments[i].title);
+      newCard
+        .find(".appartments-slider-item-tags-tag__value:eq(0)")
+        .text(filtered_appartments[i].type);
+      newCard
+        .find(".appartments-slider-item-tags-tag__value:eq(1)")
+        .text(filtered_appartments[i].total_squares);
+      newCard
+        .find(".appartments-slider-item-tags-tag__value-link")
+        .attr("href", filtered_appartments[i].layout_img);
+      newCard
+        .find(".appartments-slider-item-price p:eq(1)")
+        .text(filtered_appartments[i].price);
+      newCard
+        .find(".appartments-slider-item-download__text")
+        .attr("href", filtered_appartments[i].pdf);
+      newCard
+        .find(".appartments-slider-item-download__img")
+        .attr("href", filtered_appartments[i].pdf);
+      newCard
+        .find(".appartments-slider-item-button")
+        .attr("href", "tel:" + filtered_appartments[i].phone_number);
+      $(".appartments-slider .swiper-wrapper").append(newCard);
+    }
   }
+  else {
+    let nothing_found = `
+    <div class = "appartments-slider__nothing-found">
+      Немає пропозицій по обраним параметрам
+    </div>
+    `
+    $(".appartments-slider .swiper-wrapper").append(nothing_found);
+  }
+  
+  appartmentsSlider.update();
 }
 
 function initAppartmentsFilter() {
-  $("#section-1").addClass("appartments-button-group__button-selected");
-  $("#building-1").addClass("appartments-button-group__button-selected");
-  generateCards(appartments, selectedBuilding, selectedSection);
+  $("#section-1, #building-1").addClass("selected");
 
-  $(".building").click(function () {
-    $(".building").removeClass("appartments-button-group__button-selected");
-    $(this).addClass("appartments-button-group__button-selected");
-    selectedBuilding = parseInt($(this).text());
-    generateCards(appartments, selectedBuilding, selectedSection);
-    console.log(selectedBuilding);
-  });
-  $(".section").click(function () {
-    $(".section").removeClass("appartments-button-group__button-selected");
-    $(this).addClass("appartments-button-group__button-selected");
-    selectedSection = parseInt($(this).text());
+function filterClick(filter_class) {
+  $(document).on('click', `${filter_class}`, function () {
+    $(`${filter_class}`).removeClass("selected");
+    $(this).addClass("selected");
+    if(filter_class == '.building')selectedBuilding = parseInt($(this).text());
+    else selectedSection = parseInt($(this).text());
     generateCards(appartments, selectedBuilding, selectedSection);
   });
 }
+
+filterClick('.building');
+filterClick('.section');
+}
 function initFancybox() {
   Fancybox.bind('[data-fancybox="appartments-layouts"]', {
-    Thumbs: false,
-    Toolbar: {
-      display: {
-        left: [],
-        middle: ["infobar"],
-        right: ["close"],
-      },
-    },
     Thumbs: false,
     Toolbar: {
       display: {
@@ -660,12 +665,50 @@ async function initMap() {
   });
 }
 
+function contactFormSubmit(){
+  $(document).on('submit', '#contact-us-form', function(e){
+
+    e.preventDefault();
+    var isvalid = $("#contact-us-form").valid();
+   console.log("isValid",isvalid)
+    if(isvalid){
+      var form = $(this);
+      var actionUrl = form.attr('action');
+      
+      $.ajax({
+          type: "POST",
+          url: actionUrl,
+          data: form.serialize(),
+          success: function(data)
+          {
+            $('.popup-background').show();
+            $('#popup-content').text(`${data}`);
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            $('.popup-background').show();
+            $('#popup-content').text(`${xhr.status}  -  ${thrownError}`);
+          }
+      });
+    }
+    else{
+      $('.popup-background').show();
+      $('#popup-content').text(`zxc`);
+    }
+  });
+  
+  $(document).on('click','#popup__close-button', function(){
+    $('.popup-background').hide();
+  });
+}
+
 $(document).ready(function () {
+  initMenuButton();
   initHeaderColors();
   initHandleScroll();
   initSwiper();
-  initMenuButton();
+
   initSlick();
+  initAppartmentsSlider();
   initAppartmentsFilter();
   initFancybox();
   initNewsSlider();
@@ -673,4 +716,8 @@ $(document).ready(function () {
   initComplexGallerySlider();
   initValidation();
   initMap();
+ 
+  generateCards(appartments, selectedBuilding, selectedSection);
+  contactFormSubmit()
+ 
 });
